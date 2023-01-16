@@ -13,7 +13,7 @@ namespace std::ranges
         class Proj2
     >
     using lexicographical_compare_three_way_result_t =
-        invoke_result_t<Comp, invoke_result_t<Proj1, I1>, invoke_result_t<Proj2, I2>>;
+        invoke_result_t<Comp, typename projected<I1, Proj1>::value_type , typename projected<I2, Proj2>::value_type>;
 
     template<
         input_iterator I1, sentinel_for<I1> S1,
@@ -23,9 +23,9 @@ namespace std::ranges
         class Proj2 = identity
     >
     requires
-        std::convertible_to<lexicographical_compare_three_way_result_t<I1,I2,Comp,Proj1,Proj2>, strong_ordering> ||
-        std::convertible_to<lexicographical_compare_three_way_result_t<I1,I2,Comp,Proj1,Proj2>, weak_ordering> ||
-        std::convertible_to<lexicographical_compare_three_way_result_t<I1,I2,Comp,Proj1,Proj2>, partial_ordering>
+        std::same_as<lexicographical_compare_three_way_result_t<I1,I2,Comp,Proj1,Proj2>, strong_ordering> ||
+        std::same_as<lexicographical_compare_three_way_result_t<I1,I2,Comp,Proj1,Proj2>, weak_ordering> ||
+        std::same_as<lexicographical_compare_three_way_result_t<I1,I2,Comp,Proj1,Proj2>, partial_ordering>
 
     constexpr auto
         lexicographical_compare_three_way( 
