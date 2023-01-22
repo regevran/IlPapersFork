@@ -12,7 +12,7 @@ IlPapersFork/docker$ docker build -t pdf-maker:latest .
 2. from the main directory run the docker:
 # docker run -it --volume "${PWD}:/must have/two paths deep" <image name>
 e.g
-IlPapersFork/docker$ docker run -it --volume "${PWD}:/paper/base" pdf-maker
+IlPapersFork$ docker run -it --volume "${PWD}:/paper/base" pdf-maker
 
 
 3. from the command line inside the docker go to the paper directory.

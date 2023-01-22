@@ -23,6 +23,8 @@ add_executable(
     unordered.cpp
     t1.cpp
     avi_tests.cpp
+    ranges.cpp
+    compilation_error.cpp
 )
 
 set_target_properties(
