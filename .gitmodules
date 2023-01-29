@@ -1,3 +1,2 @@
-[submodule "pdf-generator"]
-	path = pdf-generator
+[submodule "pdf-generator/"]
 	url = https://github.com/MorTD/wg21
